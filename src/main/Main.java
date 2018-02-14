@@ -20,12 +20,19 @@ public class Main {
 
 		adicionadorArestas(vs, g);
 
-		//g.dijkstra(vs[0].getRotulo());
-		// g.dijkstraCaminhoIniEFinal('s','z');
+		// Parte Dijkstra
+		// g.dijkstra(vs[0].getRotulo());
+		// g.mostraGrafo();
 
-		g.bellmanFord(vs[0].getRotulo());
+		// Parte Bellman-Ford
+		if (g.bellmanFord(vs[0].getRotulo())) {
+			System.out.println("\n\n****Não tem solução pois tem ciclo negativo****");
+		} else {
+			System.out
+					.println("\n\n----Foi possível determinar o melhor caminho pois não encontrei ciclo negativo!----");
+			g.mostraGrafo();
+		}
 
-		g.mostraGrafo();
 	}
 
 	private static void adicionadorArestas(Vertice[] vs, Grafo g) {
@@ -48,19 +55,19 @@ public class Main {
 
 		// exemplo do Dijkstra livro Cormen
 
-//		 g.addAresta(vs[0], vs[1], 10);
-//		 g.addAresta(vs[0], vs[4], 5);
-//		
-//		 g.addAresta(vs[1], vs[2], 1);
-//		 g.addAresta(vs[1],vs[4], 2);
-//		
-//		 g.addAresta(vs[2], vs[3], 4);
-//		
-//		 g.addAresta(vs[3], vs[2], 6);
-//		 g.addAresta(vs[3], vs[0], 7);
-//		
-//		 g.addAresta(vs[4], vs[1], 3);
-//		 g.addAresta(vs[4], vs[2], 9);
-//		 g.addAresta(vs[4], vs[3], 2);
+		// g.addAresta(vs[0], vs[1], 10);
+		// g.addAresta(vs[0], vs[4], 5);
+		//
+		// g.addAresta(vs[1], vs[2], 1);
+		// g.addAresta(vs[1],vs[4], 2);
+		//
+		// g.addAresta(vs[2], vs[3], 4);
+		//
+		// g.addAresta(vs[3], vs[2], 6);
+		// g.addAresta(vs[3], vs[0], 7);
+		//
+		// g.addAresta(vs[4], vs[1], 3);
+		// g.addAresta(vs[4], vs[2], 9);
+		// g.addAresta(vs[4], vs[3], 2);
 	}
 }
