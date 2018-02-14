@@ -11,8 +11,8 @@ public class Main {
 		
 		Vertice vs[] = new Vertice[tam];
 		char vet[] = new char[tam];
-//		vet = new char[] { 's', 't', 'x', 'z', 'y' };
-		vet = new char[] {'u','v','w'};
+//		vet = new char[] { 's', 't', 'x', 'z', 'y' }; // vetor para os exemplos do livro do cormen, OBS tam = 5*
+		vet = new char[] {'u','v','w'}; // vetor para o exemplo do ciclo negativo, OBS tam = 3*
 
 		Grafo g = new Grafo();
 
