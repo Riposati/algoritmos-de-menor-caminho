@@ -1,4 +1,3 @@
-# algoritmos-de-menor-caminho
 Algoritmo de Dijkstra
 
 Entrada: 
