@@ -42,7 +42,7 @@ public class Grafo {
 
 		for (Vertice v : this.vertices) {
 
-			System.out.println("\nVértice = " + v.getRotulo());
+			System.out.println("\nVï¿½rtice = " + v.getRotulo());
 			if (v.getPrecedente() != null)
 				System.out.println("\n**********Precedente = " + v.getPrecedente().getRotulo() + "****************");
 			else
@@ -54,7 +54,7 @@ public class Grafo {
 
 	public void addAresta(Vertice verticeParteAresta, Vertice verticeRecebeAresta, long pesoAresta) {
 
-		// Aqui temos um dígrafo
+		// Aqui temos um dï¿½grafo
 
 		boolean f1 = false;
 		int aux1 = 0, i;
@@ -83,7 +83,7 @@ public class Grafo {
 		for (int i = 0; i < this.getVertices().size(); i++) {
 
 			if (this.getVertices().get(i).getRotulo() == rotulo) {
-				this.getVertices().get(i).setDistancia(0); // O começo da busca
+				this.getVertices().get(i).setDistancia(0); // O comeï¿½o da busca
 
 				filaDeVertices.add(this.getVertices().get(i));
 
@@ -108,7 +108,7 @@ public class Grafo {
 				a.getRotuloVerticeVai().setPrecedente(v);
 				this.filaDeVertices.add(a.getRotuloVerticeVai());
 //				System.out
-//						.println("Peguei o vértice da minha lista de arestas = " + a.getRotuloVerticeVai().getRotulo());
+//						.println("Peguei o vï¿½rtice da minha lista de arestas = " + a.getRotuloVerticeVai().getRotulo());
 			}
 		}
 	}
@@ -147,7 +147,7 @@ public class Grafo {
 
 		System.out.println("Bellman-Ford");
 		
-		//encontrar o vértice inicial
+		//encontrar o vï¿½rtice inicial
 		for (int i = 0; i < this.getVertices().size(); i++) {
 			if (this.getVertices().get(i).getRotulo() == rotuloVerticeInicial) {
 				this.getVertices().get(i).setDistancia(0);
@@ -161,13 +161,13 @@ public class Grafo {
 
 			for (int i = 0; i < this.vertices.size(); i++) {
 
-				this.relaxamentoArestasBellmanFord(i,cicloNegativo); // não importa o ciclo negativo o primeiro relaxamento!
+				this.relaxamentoArestasBellmanFord(i,cicloNegativo); // nï¿½o importa o ciclo negativo o primeiro relaxamento!
 			}
-		} // até aqui é a parte do relaxamento
+		} // atï¿½ aqui ï¿½ a parte do relaxamento
 		
 		cicloNegativo = false;
 		boolean f = false;
-		// verificação ciclo negativo
+		// verificaï¿½ï¿½o ciclo negativo
 		for (int i = 0; i < this.vertices.size() && !f; i++) {
 			
 			f = this.relaxamentoArestasBellmanFord(i,cicloNegativo); // se true ( achou ciclo negativo ) 
@@ -193,9 +193,9 @@ public class Grafo {
 			// System.out.println(
 			// "Peso da aresta atual = " +
 			// this.vertices.get(i).getListaArestas().get(j).getPesoAresta());
-			// System.out.println("estimativa do vértice atual = " +
+			// System.out.println("estimativa do vï¿½rtice atual = " +
 			// this.vertices.get(i).getEstimativa());
-			// System.out.println("estimativa do vértice que recebe a aresta atual = "
+			// System.out.println("estimativa do vï¿½rtice que recebe a aresta atual = "
 			// +
 			// this.vertices.get(i).getListaArestas().get(j).getRotuloVerticeVai().getEstimativa());
 			// System.out.println("soma = " + sum);

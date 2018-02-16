@@ -30,10 +30,10 @@ public class Main {
 
 		// Parte Bellman-Ford
 		if (g.bellmanFord(vs[0].getRotulo())) {
-			System.out.println("\n\n****Não tem solução pois tem ciclo negativo****");
+			System.out.println("\n\n****Nï¿½o tem soluï¿½ï¿½o pois tem ciclo negativo****");
 		} else {
 			System.out
-					.println("\n\n----Foi possível determinar o melhor caminho pois não encontrei ciclo negativo!----");
+					.println("\n\n----Foi possï¿½vel determinar o melhor caminho pois nï¿½o encontrei ciclo negativo!----");
 			g.mostraGrafo();
 		}
 
