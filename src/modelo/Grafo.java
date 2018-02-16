@@ -107,32 +107,17 @@ public class Grafo {
 				a.getRotuloVerticeVai().setDistancia(sum);
 				a.getRotuloVerticeVai().setPrecedente(v);
 				this.filaDeVertices.add(a.getRotuloVerticeVai());
-//				System.out
-//						.println("Peguei o v�rtice da minha lista de arestas = " + a.getRotuloVerticeVai().getRotulo());
 			}
 		}
 	}
 
 	public void dijkstra(char rotuloVerticeInicial) {
-		
+
 		System.out.println("Dijkstra");
 
 		if (acheiVertice(rotuloVerticeInicial)) {
 
 			while (filaNaoVazia()) {
-
-				BFS(filaDeVertices.poll());
-			}
-		}
-	}
-
-	public void dijkstraCaminhoIniEFinal(int rotuloVerticeInicial, int rotuloVerticeFinal) {
-
-		System.out.println("Dijkstra");
-		
-		if (acheiVertice(rotuloVerticeInicial)) {
-
-			while (filaNaoVazia() && filaDeVertices.peek().getRotulo() != rotuloVerticeFinal) {
 
 				BFS(filaDeVertices.poll());
 			}
@@ -146,8 +131,8 @@ public class Grafo {
 	public boolean bellmanFord(char rotuloVerticeInicial) {
 
 		System.out.println("Bellman-Ford");
-		
-		//encontrar o v�rtice inicial
+
+		// encontrar o vertice inicial
 		for (int i = 0; i < this.getVertices().size(); i++) {
 			if (this.getVertices().get(i).getRotulo() == rotuloVerticeInicial) {
 				this.getVertices().get(i).setDistancia(0);
@@ -156,61 +141,41 @@ public class Grafo {
 		}
 
 		boolean cicloNegativo = false;
-		
+
 		for (int z = 0; z < this.vertices.size(); z++) {
 
 			for (int i = 0; i < this.vertices.size(); i++) {
 
-				this.relaxamentoArestasBellmanFord(i,cicloNegativo); // n�o importa o ciclo negativo o primeiro relaxamento!
+				this.relaxamentoArestasBellmanFord(i, cicloNegativo); // n�o importa o ciclo negativo o primeiro
+																		// relaxamento!
 			}
-		} // at� aqui � a parte do relaxamento
-		
+		} // ate aqui e a parte do relaxamento
+
 		cicloNegativo = false;
 		boolean f = false;
-		// verifica��o ciclo negativo
+		// verificacao ciclo negativo
 		for (int i = 0; i < this.vertices.size() && !f; i++) {
-			
-			f = this.relaxamentoArestasBellmanFord(i,cicloNegativo); // se true ( achou ciclo negativo ) 
+
+			f = this.relaxamentoArestasBellmanFord(i, cicloNegativo); // se true ( achou ciclo negativo )
 		}
-		
+
 		return f;
 	}
 
-	private boolean relaxamentoArestasBellmanFord(int i,boolean cicloNegativo) {
-
-		// System.out.println("------------------------------");
+	private boolean relaxamentoArestasBellmanFord(int i, boolean cicloNegativo) {
 
 		for (int j = 0; j < this.vertices.get(i).getListaArestas().size(); j++) {
-
-			// System.out.print(this.vertices.get(i).getRotulo() + " -> ");
-			// System.out.println(
-			// this.vertices.get(i).getListaArestas().get(j).getRotuloVerticeVai().getRotulo()
-			// + "\n");
 
 			double sum = this.vertices.get(i).getListaArestas().get(j).getPesoAresta()
 					+ this.vertices.get(i).getDistancia();
 
-			// System.out.println(
-			// "Peso da aresta atual = " +
-			// this.vertices.get(i).getListaArestas().get(j).getPesoAresta());
-			// System.out.println("estimativa do v�rtice atual = " +
-			// this.vertices.get(i).getEstimativa());
-			// System.out.println("estimativa do v�rtice que recebe a aresta atual = "
-			// +
-			// this.vertices.get(i).getListaArestas().get(j).getRotuloVerticeVai().getEstimativa());
-			// System.out.println("soma = " + sum);
-
 			if (sum < this.vertices.get(i).getListaArestas().get(j).getRotuloVerticeVai().getDistancia()) {
 
 				cicloNegativo = true;
-				// System.out.println("troquei!\n");
-
 				this.vertices.get(i).getListaArestas().get(j).getRotuloVerticeVai().setPrecedente(this.vertices.get(i));
 				this.vertices.get(i).getListaArestas().get(j).getRotuloVerticeVai().setDistancia(sum);
 			}
 		}
-		
 		return cicloNegativo;
 	}
-
 }
